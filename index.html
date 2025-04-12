@@ -124,6 +124,8 @@
     </div>
     <audio id="enter-sound" src="https://github.com/trisiegt/trisiegt.github.io/raw/refs/heads/main/Kendrick%20Lamar%20-%20Swimming%20Pools%20(Drank).mp3" loop preload="auto"></audio>
     <div class="diamond-pattern"></div>
+    <button id="mute-btn" style="position: fixed; top: 20px; right: 20px; z-index: 10000;">🔊 Mute</button>
+
     <div class="centre">
         <div class="title-space">trisie</div>
         <div class="content">
@@ -151,12 +153,24 @@
         const blurOverlay = document.getElementById('blur-overlay');
         const clickText = document.getElementById('click-text');
         const enterSound = document.getElementById('enter-sound');
-
+        const muteBtn = document.getElementById('mute-btn');
+    
         blurOverlay.addEventListener('click', () => {
             enterSound.play();
             blurOverlay.classList.add('fade-out');
         });
+    
+        muteBtn.addEventListener('click', () => {
+            if (enterSound.muted) {
+                enterSound.muted = false;
+                muteBtn.textContent = "🔊 Mute";
+            } else {
+                enterSound.muted = true;
+                muteBtn.textContent = "🔇 Unmute";
+            }
+        });
     </script>
+    
     <p><a href="https://trisiegt.github.io/incrediblesite/index.html" target="_blank">secret sauce</a></p>
     <!--God i fucking hate typos!-->
 </body>
